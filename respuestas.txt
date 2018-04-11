@@ -1,0 +1,7 @@
+Error 1-General-Solución 1
+Error 2-General-Solución 2
+Error 3-TP0-Solución 3
+Error 4-TP0-Solución 4
+Error 5-VD-Solución 5
+Error 6-Pila-Solución 6
+Error 7-General-Solución 7

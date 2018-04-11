@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script type="text/javascript" src="corrector.js"></script>
+
+    <title>Hello, world!</title>
+  </head>
+  <body onload="start();">
+    <div class="container">
+      <div class="row">
+        <h1>Generador automático de mails de respuesta a los alumnos</h1>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <form class="form-check">
+            <div class="row">
+              <input type="checkbox" class="form-check-input" id="General">
+              <label class="form-check-label" for="General">General</label>
+            </div>
+
+            <div class="row">
+              <input type="checkbox" class="form-check-input" id="TP0">
+              <label class="form-check-label" for="TP0">TP0</label>
+            </div>
+
+            <div class="row">
+              <input type="checkbox" class="form-check-input" id="VD">
+              <label class="form-check-label" for="VD">VD</label>
+            </div>
+
+            <div class="row">
+              <input type="checkbox" class="form-check-input" id="Pila">
+              <label class="form-check-label" for="Pila">Pila</label>
+            </div>
+
+            <div class="row">
+              <input type="checkbox" class="form-check-input" id="Cola">
+              <label class="form-check-label" for="Cola">Cola</label>
+            </div>
+
+            <div class="row">
+              <input type="checkbox" class="form-check-input" id="Lista">
+              <label class="form-check-label" for="Lista">Lista</label>
+            </div>
+
+            <div class="row">
+              <input type="checkbox" class="form-check-input" id="Hash">
+              <label class="form-check-label" for="Hash">Hash</label>
+            </div>
+
+            <div class="row">
+              <input type="checkbox" class="form-check-input" id="Heap">
+              <label class="form-check-label" for="Heap">Heap</label>
+            </div>
+
+            <div class="row">
+              <input type="checkbox" class="form-check-input" id="ABB">
+              <label class="form-check-label" for="ABB">ABB</label>
+            </div>
+          </form>
+          <button type="button" class="btn btn-primary" onclick="refreshErrors();">Actualizar filtros</button>
+
+        </div>
+
+        <div class="col">
+          <form id="containerErrors"></form>
+          <button type="button" class="btn btn-primary" onclick="generateMail();">Generar mail!</button>
+
+        </div>
+
+      </div>
+
+      <br>
+
+      <br><br>
+
+      <br>
+      <form id="containerSolutions"></form>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
