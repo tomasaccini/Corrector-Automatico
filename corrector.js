@@ -1,12 +1,12 @@
 var lista_tdas = ["General", "TP0", "VD", "Pila", "Cola", "Lista", "Hash", "Heap", "ABB"];
 
-var correcciones = "1-Error 1-General-Solución 1\n\
-2-Error 2-General-Solución 2\n\
-3-Error 3-TP0-Solución 3\n\
-4-Error 4-TP0-Solución 4\n\
-5-Error 5-VD-Solución 5\n\
-6-Error 6-Pila-Solución 6\n\
-7-Error 7-General-Solución 7";
+var correcciones = "1-Error general 1-General-Solución 1\n\
+2-Error general 2-General-Solución 2\n\
+3-Error TP0 1-TP0-Solución 3\n\
+4-Error TP0 2-TP0-Solución 4\n\
+5-Error VD 1-VD-Solución 5\n\
+6-Error Pila 1-Pila-Solución 6\n\
+7-Error General 3-General-Solución 7";
 
 var agrupacion_TDA = {};
 var soluciones = {};
@@ -39,7 +39,7 @@ function loadCheckBoxs(){
       var error = soluciones[error_id][0];
       var solution = soluciones[error_id][1];
       createCheckbox(error_id, error, tda);
-      createSolution(error_id, solution);
+      createSolution(error_id, error, solution);
     }
   }
 }
@@ -67,12 +67,12 @@ function createCheckbox(error_id, error, tda){
   container.appendChild(label);
 }
 
-function createSolution(error_id, solution){
+function createSolution(error_id, error, solution){
   var container = document.getElementById('containerSolutions');
   var p = document.createElement('p');
   p.style.display = "none";
   p.id = error_id+"p";
-  p.innerHTML = "- " + solution;
+  p.innerHTML = "- <b>" + error + ":</b> " + solution;
   container.appendChild(p);
 
 }

@@ -1,0 +1,16 @@
+1-Error 1-General-Solución 1
+2-Error 2-General-Solución 2
+3-Error 3-TP0-Solución 3
+4-Error 4-TP0-asdfasdfasdfasdf
+5-Error 5-VD-Solución 5
+6-Error 6-Pila-Solución 6
+7-Error 7-General-dfasdfasdfasdfasdf
+8-Se me traba todo-General-asdfasdf
+9-adsfasdf-TP0-asdf
+10-No se-Cola-asdfasdf
+11-No tengo internet-VD-asdfasdfasdf
+12-No se-Pila-
+13-asdf-TP0-asdfasdfasdf
+14-;aslksdjfa;lkdfja;sldkfj-Lista-asdfasdfasfdf
+15-asdf;lkasjdf;laksdjf-Hash-qpwoiurpqowieur
+16-asdfasdfasdf-General-poqiuweporiuzxcpvoiu
