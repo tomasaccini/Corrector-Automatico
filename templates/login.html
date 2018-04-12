@@ -7,25 +7,24 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
         <title>Login</title>
     </head>
     <body>
-        <div class=" login-container">
+        <div class="container">
             <form action="/login" method="POST">
-
                 <div class="container-fluid">
-                    <h1 class="login-title">Login</h1>
+                    <h2>Login</h2>
+
                     <div class="form-group">
-                        <input type="text" class="login-field input-text" value="" placeholder="username" name="username">
+                        <input type="text" class="form-control" value="" placeholder="username" name="username">
                         <label for="login-name"></label>
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="login-pass input-text" value="" placeholder="password" name="password">
+                        <input type="password" class="form-control" value="" placeholder="password" name="password">
                         <label for="login-pass"></label>
                     </div>
-                    <input type="submit" value="Log in" class="btn btn-primary btn-small btn-position">
+                    <input type="submit" value="Log in" class="btn btn-primary btn-small">
                     <br>
                 </div>
             </form>
