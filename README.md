@@ -1,6 +1,16 @@
 # Generador de respuestas automáticas según los errores de los alumnos.
 Como correctores, una gran parte del tiempo la empleamos en explicar o corregir muchas veces las mismas cosas a diferentes alumnos. Este proyecto busca automatizar la generacion de esas correcciones, pudiendo seleccionar errores comunes agrupados por TDA, y obteniendo una respuesta completa y genérica para que puedas customizar para el caso particular de tu alumno.
 
+## Requerimientos
+
+- Flask 0.12.2
+
+## Cómo correr la aplicación localmente
+
+- Completar las credenciales en `.env`
+- Ejecutar `. ./.env`
+- Ejecutar `FLASK_APP=wsgi.py flask run`
+
 ## Cómo usar la interfaz web:
 - Descargar el  repositorio. 
 - Abrir el archivo corrector.html en un navegador
