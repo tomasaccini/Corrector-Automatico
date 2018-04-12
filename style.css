@@ -1,0 +1,12 @@
+
+.titulo {
+  display: inline-block;
+  font-weight: 20;
+  font-size: 4em;
+  margin: 0.2em;
+  position: relative;
+  color: #00B4F1;
+  text-align: left;
+  padding-top: 35px;
+  padding-bottom: 20px;
+}
