@@ -7,25 +7,25 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!--CSS -->
+        <link rel="stylesheet" href="../static/css/style.css"></link>
+        <!--js -->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <title>Login</title>
     </head>
-    <body>
-        <div class="container">
-            <form action="/login" method="POST">
-                <div class="container-fluid">
-                    <h2>Login</h2>
+    <body id="login">
+        <div class = "container">
+        	<div class="wrapper">
+        		<form action="/login" method="POST" name="Login_Form" class="form-signin">
+        		    <h3 class="form-signin-heading">Ingresar</h3>
+        			  <hr class="colorgraph"><br>
+        			  <input type="text" class="form-control" name="Username" placeholder="Username" required="" autofocus="" />
+        			  <input type="password" class="form-control" name="Password" placeholder="Password" required=""/>
 
-                    <div class="form-group">
-                        <input type="text" class="form-control" value="" placeholder="username" name="username">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="password" class="form-control" value="" placeholder="password" name="password">
-                    </div>
-                    <input type="submit" value="Log in" class="btn btn-primary btn-small">
-                    <br>
-                </div>
-            </form>
+        			  <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="submit">Login</button>
+        		</form>
+        	</div>
         </div>
     </body>
 </html>
