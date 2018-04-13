@@ -18,6 +18,6 @@ def index():
 
 @app.route('/login', methods=('GET', 'POST'))
 def login():
-    if flask.request.form['password'] == webapp_password and flask.request.form['username'] == webapp_user:
+    if flask.request.form['Password'] == webapp_password and flask.request.form['Username'] == webapp_user:
         flask.session['logged_in'] = True
     return index()
