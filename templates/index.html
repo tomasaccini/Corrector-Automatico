@@ -1,126 +1,196 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
     <!-- CSS -->
     <link rel="stylesheet" href="../static/css/style.css"></link>
     <script type="text/javascript" src="../static/js/corrector.js"></script>
 
     <title>Corrector Automatico</title>
-  </head>
-  <body onload="start();">
-    <div class="container">
+</head>
+<body onload="start();">
+<div class="container">
 
-      <!-- Header -->
-      <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Header -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <a class="navbar-brand" href="#">GM</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-          <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contribuir</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Generador</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Proyecto</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <div class="jumbotron">
-          <h1 class='title' >Generador automático de mails de respuesta a los alumnos</h1>
-      </div>
-      <!-- End Header -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalContribuir">
+                        Contribuir
+                    </button>
+                    <div id="modalContribuir" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
 
-      <div class="row">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Contribuir</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{{ url_for('update')}}" method="post" role="form" id="contact-form" class="contact-form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="tituloError">Error</label>
+                                                    <input type="text" class="form-control" name="Name"
+                                                           autocomplete="off" id="Tda" placeholder="Error">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label for="tdaError">Tipo de Error</label>
+                                                    <select class="form-control" id="exampleFormControlSelect1" name="selectedTDA">
+                                                        <option>GENERAL</option>
+                                                        <option>TP0</option>
+                                                        <option>VD</option>
+                                                        <option>PILA</option>
+                                                        <option>COLA</option>
+                                                        <option>LISTA</option>
+                                                        <option>HASH</option>
+                                                        <option>ABB</option>
+                                                        <option>HEAP</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <textarea class="form-control textarea" rows="3" name="Message"
+                                                              id="Message" placeholder="Respuesta"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <button id="submitContribution"type="submit" class="btn main-btn btn-info ">Cargar solucion</input>
+                                                <button type="button" class="btn btn-default float-right"
+                                                        data-dismiss="modal">Close
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Generador</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Proyecto</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <h1 class='title'>Generador automático de mails de respuesta a los alumnos</h1>
+    </div>
+    <!-- End Header -->
+
+    <div class="row">
         <div class="col">
-          <h3>Selección de TDAS</h3>
-          <form class="form-check">
-            <div class="row">
-              <input type="checkbox" class="form-check-input" id="General">
-              <label class="form-check-label" for="General">General</label>
-            </div>
+            <h3>Selección de TDAS</h3>
+            <form class="form-check">
+                <div class="row">
+                    <input type="checkbox" class="form-check-input" id="General">
+                    <label class="form-check-label" for="General">General</label>
+                </div>
 
-            <div class="row">
-              <input type="checkbox" class="form-check-input" id="TP0">
-              <label class="form-check-label" for="TP0">TP0</label>
-            </div>
+                <div class="row">
+                    <input type="checkbox" class="form-check-input" id="TP0">
+                    <label class="form-check-label" for="TP0">TP0</label>
+                </div>
 
-            <div class="row">
-              <input type="checkbox" class="form-check-input" id="VD">
-              <label class="form-check-label" for="VD">VD</label>
-            </div>
+                <div class="row">
+                    <input type="checkbox" class="form-check-input" id="VD">
+                    <label class="form-check-label" for="VD">VD</label>
+                </div>
 
-            <div class="row">
-              <input type="checkbox" class="form-check-input" id="Pila">
-              <label class="form-check-label" for="Pila">Pila</label>
-            </div>
+                <div class="row">
+                    <input type="checkbox" class="form-check-input" id="Pila">
+                    <label class="form-check-label" for="Pila">Pila</label>
+                </div>
 
-            <div class="row">
-              <input type="checkbox" class="form-check-input" id="Cola">
-              <label class="form-check-label" for="Cola">Cola</label>
-            </div>
+                <div class="row">
+                    <input type="checkbox" class="form-check-input" id="Cola">
+                    <label class="form-check-label" for="Cola">Cola</label>
+                </div>
 
-            <div class="row">
-              <input type="checkbox" class="form-check-input" id="Lista">
-              <label class="form-check-label" for="Lista">Lista</label>
-            </div>
+                <div class="row">
+                    <input type="checkbox" class="form-check-input" id="Lista">
+                    <label class="form-check-label" for="Lista">Lista</label>
+                </div>
 
-            <div class="row">
-              <input type="checkbox" class="form-check-input" id="Hash">
-              <label class="form-check-label" for="Hash">Hash</label>
-            </div>
+                <div class="row">
+                    <input type="checkbox" class="form-check-input" id="Hash">
+                    <label class="form-check-label" for="Hash">Hash</label>
+                </div>
 
-            <div class="row">
-              <input type="checkbox" class="form-check-input" id="Heap">
-              <label class="form-check-label" for="Heap">Heap</label>
-            </div>
+                <div class="row">
+                    <input type="checkbox" class="form-check-input" id="Heap">
+                    <label class="form-check-label" for="Heap">Heap</label>
+                </div>
 
-            <div class="row">
-              <input type="checkbox" class="form-check-input" id="ABB">
-              <label class="form-check-label" for="ABB">ABB</label>
-            </div>
-          </form>
-          <button type="button" class="btn btn-primary" onclick="refreshErrors();">Actualizar filtros</button>
+                <div class="row">
+                    <input type="checkbox" class="form-check-input" id="ABB">
+                    <label class="form-check-label" for="ABB">ABB</label>
+                </div>
+            </form>
+            <button type="button" class="btn btn-primary" onclick="refreshErrors();">Actualizar filtros</button>
 
         </div>
 
         <div class="col">
-          <h3>Selección de Errores</h3>
+            <h3>Selección de Errores</h3>
 
-          <form id="containerErrors"></form>
-          <button type="button" class="btn btn-primary" onclick="generateMail();">Generar mail!</button>
+            <form id="containerErrors"></form>
+            <button type="button" class="btn btn-primary" onclick="generateMail();">Generar mail!</button>
 
         </div>
 
-      </div>
-
-      <br>
-
-      <br><br>
-
-      <br>
-      <div class="row">
-        <div class="col">
-          <h2>Soluciones</h2>
-          <form id="containerSolutions"></form>
-        </div>
-      </div>
     </div>
 
+    <br>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+    <br><br>
+
+    <br>
+    <div class="row">
+        <div class="col">
+            <h2>Soluciones</h2>
+            <form id="containerSolutions"></form>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
 </html>
