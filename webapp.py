@@ -20,4 +20,5 @@ def index():
 def login():
     if flask.request.form['Password'] == webapp_password and flask.request.form['Username'] == webapp_user:
         flask.session['logged_in'] = True
-    return index()
+    return flask.redirect(flask.url_for('index'))
+
