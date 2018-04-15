@@ -1,5 +1,6 @@
 import flask
 import os
+from SolutionsGenerator import *
 
 app = flask.Flask(__name__)
 app.secret_key = os.urandom(12)
@@ -22,3 +23,15 @@ def login():
         flask.session['logged_in'] = True
     return flask.redirect(flask.url_for('index'))
 
+
+@app.route('/update', methods=['POST'])
+def update():
+    sg = SolutionsGenerator("solutions.txt")
+
+    sg.add_error_with_solution(
+        flask.request.form["Name"],
+        flask.request.form["selectedTDA"],
+        flask.request.form["Message"]+"\n")
+    sg.write_file()
+
+    return flask.redirect(flask.url_for('index'))
