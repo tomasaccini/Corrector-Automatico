@@ -71,33 +71,42 @@ function createSolution(error_id, error, solution){
   var divContainer = document.getElementById('accordion');
   var divPrincipal = document.createElement('div');
   divPrincipal.className = 'card';
+  //titulo
   var divName = document.createElement('div');
   divName.className = 'card-header';
   divName.id = "heading" + error_id;
   var h5 = document.createElement('h5');
   h5.className='mb-0';
+  h5.appendChild(createButtonCollapse(error_id));
+  divName.appendChild(h5);
+  //solucion
+  var divText = document.createElement('card-body');
+  divText.innerHTML = solution;
+  //appends
+  divPrincipal.appendChild(divName);
+  divPrincipal.appendChild(createDivBoxCollapse(error_id,divText));
+  divContainer.appendChild(divPrincipal);
+}
+
+function createDivBoxCollapse(error_id,divText){
+  var divbox = document.createElement('div');
+  divbox.id = 'collapse' + error_id
+  divbox.className = "collapse show"
+  divbox.setAttribute('data-parent','#accordion');
+  divbox.setAttribute('aria-labelledby',"heading" + error_id);
+  divbox.appendChild(divText);
+  return divbox;
+}
+
+function createButtonCollapse(error_id){
   var button = document.createElement('button');
   button.className = "btn btn-link";
   button.setAttribute('data-toggle','collapse');
   button.setAttribute('data-target','#' + 'collapse' + error_id);
   button.setAttribute('aria-expanded',"true");
   button.setAttribute('aria_controls','collapse' + error_id);
-  button.innerHTML = 'Solución';
-  h5.appendChild(button);
-  divName.appendChild(h5);
-
-  var divbox = document.createElement('div');
-  divbox.id = 'collapse' + error_id
-  divbox.className = "collapse show"
-  divbox.setAttribute('data-parent','#accordion');
-  divbox.setAttribute('aria-labelledby',"heading" + error_id);
-  var divText = document.createElement('card-body');
-  divText.innerHTML = solution;
-  divbox.appendChild(divText);
-
-  divPrincipal.appendChild(divName);
-  divPrincipal.appendChild(divbox);
-  divContainer.appendChild(divPrincipal);
+  button.innerHTML = 'Solución' + error_id;
+  return button;
 }
 
 function generateMail(){
